@@ -2,6 +2,9 @@ var config  = require('../config.json');
 var express = require('express');
 var router  = express.Router();
 
+
+
+//test edit
 // Handle GET request to '/'
 router.get(config.routes.info, function (req, res) {
   // Response data
