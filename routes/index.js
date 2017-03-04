@@ -20,16 +20,23 @@ var height;
 });
 
 
+<<<<<<< HEAD
   router.post(config.routes.start, function (req, res) {
   console.log(JSON.stringify(req.body));
   console.log(req.body.width);
 
+=======
+  width = req.body.width;
+  height = req.body.height;
+>>>>>>> 7389aaaa2ebf494cc0258fe1f4847920ded45498
 
   
 
   // Response data
   var data = {
-    taunt: config.snake.taunt.start
+    taunt: config.snake.taunt.start,
+    head_type: "fang",
+    tail_type: "fat-rattle"
   };
 
   return res.json(data);
