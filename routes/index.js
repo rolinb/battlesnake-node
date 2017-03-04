@@ -44,7 +44,7 @@ router.post(config.routes.move, function (req, res) {
   //console.log("board height: " + height);
   //console.log("board width: " + width);
 
-  console.log("snakes?" + )
+  //console.log("snakes?" + )
 
   console.log("******************");
   console.log("******************")
