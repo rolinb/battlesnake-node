@@ -8,6 +8,11 @@ var router  = express.Router();
 // Handle GET request to '/'
 router.get(config.routes.info, function (req, res) {
   // Response data
+
+  console.log(req);
+  console.log("\n\n");
+  console.log(res);
+
   var data = {
     color: config.snake.color,
     head_url: config.snake.head_url,
@@ -31,6 +36,7 @@ router.post(config.routes.start, function (req, res) {
 // Handle POST request to '/move'
 router.post(config.routes.move, function (req, res) {
   // Do something here to generate your move
+
 
   // Response data
   var data = {
