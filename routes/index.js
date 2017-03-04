@@ -54,53 +54,81 @@ router.post(config.routes.move, function (req, res) {
   us = req.body.you;
 
   console.log(us);
-
+  var headx;
+  var heady;
 
   console.log(req.body.snakes.length);
   notUs = [];
   //console.log(notUs.length);
   for(i = 0; i<req.body.snakes.length; i++){
     console.log("test");
-    
+
     console.log(notUs.length);
        if(req.body.snakes[i].id === us){
             console.log("found my head");
+            var head = JSON.stringify(req.body.snakes[i].coords[0]).split(',');
+
+             headx = head[0].replace(/\D+/g, '');
+             heady = head[1].replace(/\D+/g, '');
+            console.log("head section done?");
+            for (j =1; j <req.body.snakes[i].coords.length; j++){
+              console.log(req.body.snakes[i].coords[i]);
+              var locations = JSON.stringify(req.body.snakes[i].coords[i]).split(',');
+              currMap[locations[0].replace(/\D+/g, '')][locations[1].replace(/\D+/g, '')] = 1;
+            }
        }
-      //for(z = 0; z < req.body.snakes.coords.length; z++){
+       else{
+         for (j =0; j <req.body.snakes[i].coords.length; j++){
+           console.log(req.body.snakes[i].coords[i]);
+           var locations = JSON.stringify(req.body.snakes[i].coords[i]).split(',');
+           currMap[locations[0].replace(/\D+/g, '')][locations[1].replace(/\D+/g, '')] = 1;
+         }
+       }
 
-      //}
- }
-
-  // get the array of food element positions into a local array
- /* for(i = 0; i < width; i++){
-     for(z = 0; z < height; z++){
-          //Sets food into the current snake map
-          if(currMap[i][z] == foodMap[i][z]){
-               currMap[i][z] = 2;
-          }
-          //puts snakes into the current snake map
-          if(currMap[i][z] == snake.coOrds[i][z]){
-               currMap[i][z] = 1;
-          }
-     }
-}*/
-
-  console.log("******************");
-  console.log("******************");
-  //console.log("snake name maybe? " + req.you);
-  //console.log("board height: " + height);
-  //console.log("board width: " + width);
-
-  //console.log("snakes?" + )
-
-  console.log("******************");
-  console.log("******************")
+  }
+  var intx = parseInt(headx);
+  var inty = parseInt(heady);
+  currMap[intx][inty] = 3;
+  console.log("A");
+  var path=false;
+  var direction = 'north';
+  while(!path){
+    console.log("b");
+    //north
+    console.log(currMap[intx][inty]);
 
 
+    if(inty+1 < height && currMap[intx][inty+1] == 0){
+      path = true;
+      direction = 'south';
+      console.log(direction);
+    }
+    else if(intx+1 < width && [intx+1][inty] == 0){
+      path =true;
+      direction = 'east';
+      console.log(direction);
+    }
+    else if(inty-1 > width && currMap[intx][inty-1] == 0){
+      path = true;
+      direction = 'north';
+      console.log(direction);
+    }
+    else if(intx-1 > height && currMap[intx-1][inty] == 0){
+      path = true;
+      direction = 'west';
+      console.log(direction);
+    }
+    else{
+      console.log("never should have got here");
+    }
+
+  }
+
+console.log("C");
 
   // Response data
   var data = {
-    move: 'north', // one of: ["north", "east", "south", "west"]
+    move: direction, // one of: ["north", "east", "south", "west"]
     taunt: config.snake.taunt.move
   };
 
