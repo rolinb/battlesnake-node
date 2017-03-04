@@ -1,17 +1,22 @@
 var config  = require('../config.json');
 var express = require('express');
 var router  = express.Router();
+<<<<<<< HEAD
 var baseMap = [];
 var currMap = baseMap;
 
 //Food is a 2; Snakes are 1; empty is 0;
 
+=======
+var bodyParser = require('body-parser');
+>>>>>>> origin/master
 var width;
 var height;
 
-//test edit
-// Handle GET request to '/'
-router.get(config.routes.info, function (req, res) {
+
+  router.use(bodyParser.json());//
+  router.use(bodyParser.urlencoded({extended: false }));
+  router.get(config.routes.info, function (req, res) {
   // Response data
 
   var data = {
@@ -22,16 +27,25 @@ router.get(config.routes.info, function (req, res) {
   return res.json(data);
 });
 
-// Handle POST request to '/start'
-router.post(config.routes.start, function (req, res) {
-  // Do something here to start the game
 
+<<<<<<< HEAD
+  router.post(config.routes.start, function (req, res) {
+  console.log(JSON.stringify(req.body));
+  console.log(req.body.width);
+
+=======
   width = req.body.width;
   height = req.body.height;
+<<<<<<< HEAD
   for(i = 0; i < width * height; i++){
        baseMap.push([0,0]);
   }
   currMap = baseMap;
+=======
+>>>>>>> 7389aaaa2ebf494cc0258fe1f4847920ded45498
+
+  
+>>>>>>> origin/master
 
   // Response data
   var data = {
