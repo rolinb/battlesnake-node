@@ -52,11 +52,25 @@ var height;
 router.post(config.routes.move, function (req, res) {
   // update map
   us = req.body.you;
+
   console.log(us);
 
 
-  notUs = req.body.snakes.length;
-  console.log("how many snakes? " + notUs);
+  console.log(req.body.snakes.length);
+  notUs = [];
+  //console.log(notUs.length);
+  for(i = 0; i<req.body.snakes.length; i++){
+    console.log("test");
+    
+    console.log(notUs.length);
+       if(req.body.snakes[i].id === us){
+            console.log("found my head");
+       }
+      //for(z = 0; z < req.body.snakes.coords.length; z++){
+
+      //}
+ }
+
   // get the array of food element positions into a local array
  /* for(i = 0; i < width; i++){
      for(z = 0; z < height; z++){
