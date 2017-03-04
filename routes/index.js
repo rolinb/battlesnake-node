@@ -1,6 +1,10 @@
 var config  = require('../config.json');
 var express = require('express');
 var router  = express.Router();
+var baseMap = [];
+var currMap = baseMap;
+
+//Food is a 2; Snakes are 1; empty is 0;
 
 var width;
 var height;
@@ -24,7 +28,10 @@ router.post(config.routes.start, function (req, res) {
 
   width = req.body.width;
   height = req.body.height;
-
+  for(i = 0; i < width * height; i++){
+       baseMap.push([0,0]);
+  }
+  currMap = baseMap;
 
   // Response data
   var data = {
@@ -38,7 +45,20 @@ router.post(config.routes.start, function (req, res) {
 
 // Handle POST request to '/move'
 router.post(config.routes.move, function (req, res) {
-  // Do something here to generate your move
+  // update map
+  //TODO get the array of food element positions into a local array
+  for(i = 0; i < width; i++){
+     for(z = 0; z < height; z++){
+          //Sets food into the current snake map
+          if(currMap[i][z] == foodMap[i][z]){
+               currMap[i][z] = 2;
+          }
+          //puts snakes into the current snake map
+          if(currMap[i][z] == snake.coOrds[i][z]){
+               currMap[i][z] = 1;
+          }
+     }
+ }
 
   console.log("******************");
   console.log("******************");
