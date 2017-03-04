@@ -1,13 +1,14 @@
 var config  = require('../config.json');
 var express = require('express');
 var router  = express.Router();
-
+var bodyParser = require('body-parser');
 var width;
 var height;
 
-//test edit
-// Handle GET request to '/'
-router.get(config.routes.info, function (req, res) {
+
+  router.use(bodyParser.json());//
+  router.use(bodyParser.urlencoded({extended: false }));
+  router.get(config.routes.info, function (req, res) {
   // Response data
 
   var data = {
@@ -18,13 +19,13 @@ router.get(config.routes.info, function (req, res) {
   return res.json(data);
 });
 
-// Handle POST request to '/start'
-router.post(config.routes.start, function (req, res) {
-  // Do something here to start the game
 
-  //width = req.width;
-  //height = req.height;
+  router.post(config.routes.start, function (req, res) {
+  console.log(JSON.stringify(req.body));
+  console.log(req.body.width);
 
+
+  
 
   // Response data
   var data = {
