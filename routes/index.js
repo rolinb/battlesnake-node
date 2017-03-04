@@ -1,15 +1,7 @@
 var config  = require('../config.json');
 var express = require('express');
 var router  = express.Router();
-<<<<<<< HEAD
-var baseMap = [];
-var currMap = baseMap;
-
-//Food is a 2; Snakes are 1; empty is 0;
-
-=======
 var bodyParser = require('body-parser');
->>>>>>> origin/master
 var width;
 var height;
 
@@ -28,24 +20,13 @@ var height;
 });
 
 
-<<<<<<< HEAD
+
   router.post(config.routes.start, function (req, res) {
+
   console.log(JSON.stringify(req.body));
   console.log(req.body.width);
 
-=======
-  width = req.body.width;
-  height = req.body.height;
-<<<<<<< HEAD
-  for(i = 0; i < width * height; i++){
-       baseMap.push([0,0]);
-  }
-  currMap = baseMap;
-=======
->>>>>>> 7389aaaa2ebf494cc0258fe1f4847920ded45498
 
-  
->>>>>>> origin/master
 
   // Response data
   var data = {
@@ -59,31 +40,6 @@ var height;
 
 // Handle POST request to '/move'
 router.post(config.routes.move, function (req, res) {
-  // update map
-  //TODO get the array of food element positions into a local array
-  for(i = 0; i < width; i++){
-     for(z = 0; z < height; z++){
-          //Sets food into the current snake map
-          if(currMap[i][z] == foodMap[i][z]){
-               currMap[i][z] = 2;
-          }
-          //puts snakes into the current snake map
-          if(currMap[i][z] == snake.coOrds[i][z]){
-               currMap[i][z] = 1;
-          }
-     }
- }
-
-  console.log("******************");
-  console.log("******************");
-  //console.log("snake name maybe? " + req.you);
-  //console.log("board height: " + height);
-  //console.log("board width: " + width);
-
-  //console.log("snakes?" + )
-
-  console.log("******************");
-  console.log("******************")
 
 
 
