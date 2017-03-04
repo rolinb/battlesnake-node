@@ -48,8 +48,10 @@ var height;
 // Handle POST request to '/move'
 router.post(config.routes.move, function (req, res) {
   // update map
-  //TODO get the array of food element positions into a local array
-  for(i = 0; i < width; i++){
+  us = req.body.you;
+  notUs = req.body.snakes.length;
+  // get the array of food element positions into a local array
+ /* for(i = 0; i < width; i++){
      for(z = 0; z < height; z++){
           //Sets food into the current snake map
           if(currMap[i][z] == foodMap[i][z]){
@@ -60,7 +62,7 @@ router.post(config.routes.move, function (req, res) {
                currMap[i][z] = 1;
           }
      }
- }
+}*/
 
   console.log("******************");
   console.log("******************");
