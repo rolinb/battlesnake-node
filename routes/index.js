@@ -22,8 +22,8 @@ router.get(config.routes.info, function (req, res) {
 router.post(config.routes.start, function (req, res) {
   // Do something here to start the game
 
-  width = req.width;
-  height = req.height;
+  //width = req.width;
+  //height = req.height;
 
 
   // Response data
@@ -40,9 +40,9 @@ router.post(config.routes.move, function (req, res) {
 
   console.log("******************");
   console.log("******************");
-  console.log("snake name maybe? " + req.you);
-  console.log("board height: " + height);
-  console.log("board width: " + width);
+  //console.log("snake name maybe? " + req.you);
+  //console.log("board height: " + height);
+  //console.log("board width: " + width);
 
   console.log("snakes?" + )
 
