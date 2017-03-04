@@ -1,6 +1,11 @@
 var config  = require('../config.json');
 var express = require('express');
 var router  = express.Router();
+var baseMap = [];
+var currMap = baseMap;
+
+//Food is a 2; Snakes are 1; empty is 0;
+
 var bodyParser = require('body-parser');
 var width;
 var height;
@@ -20,12 +25,17 @@ var height;
 });
 
 
-
   router.post(config.routes.start, function (req, res) {
 
   console.log(JSON.stringify(req.body));
   console.log(req.body.width);
 
+  width = req.body.width;
+  height = req.body.height;
+  for(i = 0; i < width * height; i++){
+       baseMap.push([0,0]);
+  }
+  currMap = baseMap;
 
 
   // Response data
