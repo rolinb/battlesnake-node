@@ -9,13 +9,13 @@
   },
   "snake" : {
     "name": "bokoblin-snake",
-    "color": "#fff000",
+    "color": "#FF3232",
     "head_url": "http://bokoblin-snake.herokuapp.com/",
     "taunt": {
-      "state": "It's great to be alive!",
-      "move": "Outta my way snake!",
-      "start": "Let's do this thang!",
-      "end": "I've been snaked!"
+      "state": "*ponders life*",
+      "move": "*hops around and swings stick*",
+      "start": "*hits shield with stick*",
+      "end": "*drops rupees*"
     }
   }
 }
