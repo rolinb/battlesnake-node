@@ -22,13 +22,15 @@ router.get(config.routes.info, function (req, res) {
 router.post(config.routes.start, function (req, res) {
   // Do something here to start the game
 
-  //width = req.width;
-  //height = req.height;
+  width = req.body.width;
+  height = req.body.height;
 
 
   // Response data
   var data = {
-    taunt: config.snake.taunt.start
+    taunt: config.snake.taunt.start,
+    head_type: "fang",
+    tail_type: "fat-rattle"
   };
 
   return res.json(data);
