@@ -91,7 +91,7 @@ router.post(config.routes.move, function (req, res) {
   currMap[intx][inty] = 3;
   console.log("A");
   var path=false;
-  var direction = 'north';
+  var direction = 'south';
   while(!path){
     console.log("b");
     //north
