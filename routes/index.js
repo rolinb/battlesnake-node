@@ -91,7 +91,7 @@ router.post(config.routes.move, function (req, res) {
   currMap[intx][inty] = 3;
   console.log("A");
   var path=false;
-  var direction = 'south';
+  var direction = 'down';
   while(!path){
     console.log("b");
     //north
@@ -100,22 +100,22 @@ router.post(config.routes.move, function (req, res) {
 
     if(inty+1 < height && currMap[intx][inty+1] == 0){
       path = true;
-      direction = 'south';
+      direction = 'down';
       console.log(direction);
     }
     else if(intx+1 < width && [intx+1][inty] == 0){
       path =true;
-      direction = 'east';
+      direction = 'right';
       console.log(direction);
     }
     else if(inty-1 > width && currMap[intx][inty-1] == 0){
       path = true;
-      direction = 'north';
+      direction = 'up';
       console.log(direction);
     }
     else if(intx-1 > height && currMap[intx-1][inty] == 0){
       path = true;
-      direction = 'west';
+      direction = 'left';
       console.log(direction);
     }
     else{
